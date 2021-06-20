@@ -3,8 +3,12 @@ include 'con_db.php';
 if($_POST)
     {
         $acno  =$_POST['acno'];
-    }
-?>
+        $q =mysqli_query($con, "select * from customer WHERE acno = $acno ");
+        $row=mysqli_fetch_array($q);
+        if($row==0){
+            echo '<script>alert("Account Number not found");window.location="deposit.php"</script>';
+        }
+   
 
 <html>
 <head>
