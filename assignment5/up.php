@@ -5,6 +5,9 @@ include 'con_db.php';
         $pno  =$_POST['passno'];
         $q =mysqli_query($con, "select * from passport WHERE pass_no = $pno ");
         $row=mysqli_fetch_array($q);
+        if($row==0){
+            echo '<script>alert("Passport Number not found");window.location="up_pass.php"</script>';
+        }
     }
 ?>
 
